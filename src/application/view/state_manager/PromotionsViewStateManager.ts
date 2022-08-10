@@ -1,0 +1,5 @@
+class PromotionsViewStateManager {
+
+}
+
+export { PromotionsViewStateManager }

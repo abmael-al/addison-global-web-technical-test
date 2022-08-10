@@ -1,0 +1,5 @@
+class PromotionsRoot {
+
+}
+
+export { PromotionsRoot };

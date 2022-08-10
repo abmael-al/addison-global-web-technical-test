@@ -1,0 +1,5 @@
+class PromotionComponentBuilder {
+
+}
+
+export { PromotionComponentBuilder };

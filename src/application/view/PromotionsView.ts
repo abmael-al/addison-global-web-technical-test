@@ -1,0 +1,5 @@
+class PromotionsView {
+
+}
+
+export { PromotionsView };
