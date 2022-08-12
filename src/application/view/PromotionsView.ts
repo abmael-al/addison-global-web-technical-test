@@ -19,10 +19,16 @@ class PromotionsView {
     }
     
     async start() {
-        const promotions: Promotion[] = await this.PromotionsRequestor.requestAll();
+        const { status, result } = await this.PromotionsRequestor.requestAll();
 
+        if(status === 'success') {
+            this.render(result);
+        }
+    }
+
+    private render(promotions: Promotion[]) {
         for(const promotion of promotions){
-            this.PromotionsRoot.render(promotion);
+            this.PromotionsRenderer.render(promotion);
         }
     }
 }
