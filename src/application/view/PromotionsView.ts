@@ -1,12 +1,21 @@
 import { Promotion } from "../../domain/Promotion";
+import { RequestResponse } from "../../domain/RequestResponse" 
+
+interface Renderer {
+    render(promotion: Promotion): void;
+}
+
+interface Requestor {
+    requestAll(): Promise<RequestResponse>;
+}
 
 class PromotionsView {
     private readonly PromotionsRequestor;
-    private readonly PromotionsRoot;
+    private readonly PromotionsRenderer;
 
-    constructor(PromotionsRequestor: any, PromotionsRoot: any) {
+    constructor(PromotionsRequestor: Requestor, PromotionsRenderer: Renderer) {
         this.PromotionsRequestor = PromotionsRequestor;
-        this.PromotionsRoot = PromotionsRoot;
+        this.PromotionsRenderer = PromotionsRenderer;
     }
     
     async start() {
