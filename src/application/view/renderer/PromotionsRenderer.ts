@@ -1,10 +1,14 @@
 import { Promotion } from "../../../domain/Promotion";
 
-class PromotionsRoot {
+interface Builder {
+    build(promotion: Promotion): HTMLDivElement;
+}
+
+class PromotionsRenderer {
     private readonly ComponentBuilder;
     private readonly root = document.querySelector('[promotions-root]') as HTMLDivElement;
 
-    constructor(ComponentBuilder: any) {
+    constructor(ComponentBuilder: Builder) {
         this.ComponentBuilder = ComponentBuilder;
     }
 
@@ -21,4 +25,4 @@ class PromotionsRoot {
     }
 }
 
-export { PromotionsRoot };
+export { PromotionsRenderer };
