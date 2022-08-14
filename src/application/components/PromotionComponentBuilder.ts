@@ -15,7 +15,7 @@ class PromotionComponentBuilder {
         this.setComponentStructure();
         this.populateComponentStructure(promotion);
 
-        return this.getComponent();
+        return this.getComponent(promotion.onlyNewCustomers);
     }
 
     private setComponentStructure() {
@@ -66,10 +66,12 @@ class PromotionComponentBuilder {
         }
     }
 
-    private getComponent() {
+    private getComponent(onlyNewCustomers: boolean) {
         const component = document.createElement('div');
+        const targetAudience = (onlyNewCustomers) ? 'new-customers' : 'all-customers';
 
         component.appendChild(this.componentStructure);
+        component.setAttribute('data-target-audience', targetAudience);
 
         return component;
     }
