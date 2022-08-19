@@ -11,10 +11,13 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "noEmit": true,
+    "alwaysStrict": true,
+    "allowUnreachableCode": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
+    "strictNullChecks": true,
     "skipLibCheck": true,
     "types": ["vite/client"]
   },
