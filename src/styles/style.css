@@ -89,6 +89,16 @@ a {
   }
 }
 
+body {
+  min-block-size: 100vh;
+
+  font-family: var(--ff-body);
+  font-weight: var(--fw-regular);
+  color: var(--color-neutral-900);
+
+  background-color: var(--color-neutral-200);
+}
+
 /* -------------- */
 /* UTILITY        */
 /* -------------- */
