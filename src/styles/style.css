@@ -89,3 +89,26 @@ a {
     scroll-behavior: auto !important;
   }
 }
+
+/* -------------- */
+/* UTILITY        */
+/* -------------- */
+/* typography */
+.color-accent-100 { color: var(--color-accent-100); }
+.color-accent-200 { color: var(--color-accent-200); }
+.color-neutral-100 { color: var(--color-neutral-100); }
+.color-neutral-200 { color: var(--color-neutral-200); }
+.color-neutral-300 { color: var(--color-neutral-300); }
+.color-neutral-400 { color: var(--color-neutral-400); }
+.color-neutral-700 { color: var(--color-neutral-700); }
+.color-neutral-800 { color: var(--color-neutral-800); }
+.color-neutral-900 { color: var(--color-neutral-900); }
+
+.ff-primary { font-family: var(--ff-primary); }
+.ff-primary-heading { font-family: var(--ff-primary-heading); }
+.ff-secondary-heading { font-family: var(--ff-secondary-heading); }
+.ff-tertiary-heading { font-family: var(--ff-tertiary-heading); }
+
+.fw-regular { font-weight: var(--fw-regular); }
+.fw-semi-bold { font-weight: var(--fw-semi-bold); }
+
