@@ -1,3 +1,32 @@
+/* ----------------- */
+/* CUSTOM PROPERTIES */
+/* ----------------- */
+
+:root {
+  /* colors */
+  --color-accent-100: hsl(211, 100%, 80%);
+  --color-accent-200: hsl(152, 100%, 70%);
+
+  --color-neutral-100: hsl(0, 0%, 100%);
+  --color-neutral-200: hsl(0, 0%, 95%);
+  --color-neutral-300: hsl(0, 0%, 85%);
+  --color-neutral-400: hsl(0, 0%, 71%);
+  --color-neutral-700: hsl(0, 0%, 40%);
+  --color-neutral-800: hsl(0, 0%, 23%);
+  --color-neutral-900: hsl(0, 0%, 0%);
+
+  /* typography */
+  --ff-primary: 'Poppins', sans-serif;
+  
+  --ff-body: var(--ff-primary);
+  --ff-primary-heading: var(--ff-primary);
+  --ff-secondary-heading: var(--ff-primary);
+  --ff-tertiary-heading: var(--ff-primary);
+
+  --fw-regular: 400;
+  --fw-semi-bold: 600;
+}
+
 /* -------------- */
 /* RESETS         */
 /* -------------- */
