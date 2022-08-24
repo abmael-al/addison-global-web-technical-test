@@ -1,7 +1,6 @@
 /* ----------------- */
 /* CUSTOM PROPERTIES */
 /* ----------------- */
-
 :root {
   /* colors */
   --color-accent-100: hsl(211, 100%, 80%);
@@ -111,4 +110,14 @@ a {
 
 .fw-regular { font-weight: var(--fw-regular); }
 .fw-semi-bold { font-weight: var(--fw-semi-bold); }
-
+
+/* background */
+.bg-accent-100 { background-color: var(--color-accent-100); } 
+.bg-accent-200 { background-color: var(--color-accent-200); } 
+.bg-neutral-100 { background-color: var(--color-neutral-100); } 
+.bg-neutral-200 { background-color: var(--color-neutral-200); } 
+.bg-neutral-300 { background-color: var(--color-neutral-300); } 
+.bg-neutral-400 { background-color: var(--color-neutral-400); } 
+.bg-neutral-700 { background-color: var(--color-neutral-700); } 
+.bg-neutral-800 { background-color: var(--color-neutral-800); } 
+.bg-neutral-900 { background-color: var(--color-neutral-900); } 
