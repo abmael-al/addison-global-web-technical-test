@@ -30,11 +30,26 @@
   <body>
     <template promotion-component-template>
       <div class="promotion-component">
-        <h4 promotion-name></h4>
-        <img promotion-thumbnail src="" alt="">
-        <p promotion-description></p>
-        <button promotion-join-now></button>
-        <button promotion-terms-and-conditions></button>
+        <div class="promotion-card-container">
+          <div class="promotion-card-body">
+            <div class="promotion-card-headline">
+              <h4 promotion-name></h4>
+            </div>
+  
+            <div class="promotion-card-supporting-text">
+              <p promotion-description></p>
+            </div>
+  
+            <div class="promotion-card-actions">
+              <button promotion-join-now></button>
+              <button promotion-terms-and-conditions></button>
+            </div>
+          </div>
+
+          <div class="promotion-card-thumbnail">
+            <img promotion-thumbnail src="" alt="">
+          </div>
+        </div>
       </div>
     </template>
     
