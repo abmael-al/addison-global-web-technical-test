@@ -142,4 +142,108 @@ body {
 .bg-neutral-400 { background-color: var(--color-neutral-400); } 
 .bg-neutral-700 { background-color: var(--color-neutral-700); } 
 .bg-neutral-800 { background-color: var(--color-neutral-800); } 
-.bg-neutral-900 { background-color: var(--color-neutral-900); } 
+.bg-neutral-900 { background-color: var(--color-neutral-900); }
+
+/* -------------- */
+/* COMPONENTS     */
+/* -------------- */
+/* promotion-card */
+.promotion-component {
+  --width: 100%;
+
+  inline-size: var(--width);
+  font-size: var(--fs-300);
+}
+
+.promotion-component > .promotion-card-container {
+  --direction: row;
+  
+  inline-size: 100%;
+  display: grid;
+  grid-auto-flow: var(--direction);
+  grid-auto-columns: var(--auto-columns, 100%);
+}
+
+.promotion-component .promotion-card-body {
+  --spacing: 1.5rem;
+  --gap: 0.75rem;
+
+  padding: var(--spacing);
+  display: grid;
+  gap: var(--gap);
+
+  background-color: var(--color-neutral-100);
+}
+
+.promotion-component .promotion-card-headline {
+  --gap: 0.15rem;
+  
+  display: grid;
+  gap: var(--gap);
+}
+
+.promotion-component .promotion-card-headline  > .promotion-card-title {
+  font-size: var(--fs-500);
+}
+
+.promotion-component .promotion-card-headline  > .promotion-card-tag {
+  font-size: var(--fs-200);
+}
+
+.promotion-component .promotion-card-supporting-text {
+  line-height: 1.5;
+}
+
+.promotion-component .promotion-card-actions {
+  margin-block-start: calc(var(--spacing) - var(--gap));
+
+  display: flex;
+  gap: var(--spacing);
+}
+
+.promotion-component .promotion-card-thumbnail {
+  grid-row: 1 / 2;
+}
+
+@media (min-width: 36.0625em) and (max-width: 64em) {
+  .promotion-component {
+    --width: 34em;
+  }
+}
+
+@media (min-width: 64.0625em) {
+  .promotion-component {
+    --width: 60rem;
+  }
+
+  .promotion-component > .promotion-card-container {
+    --direction: column;
+    --auto-columns: 50%;
+  }
+  
+  .promotion-component .promotion-card-body {
+    --spacing: 2rem;
+  }
+
+  .promotion-component .promotion-card-headline {
+    --gap: 0.25rem;
+  }
+}
+
+/* promotion-card buttons */
+.promotion-component .promotion-card-primary-button {
+  padding-inline: 1em;
+  padding-block: 0.5em;
+
+  text-transform: uppercase;
+  color: var(--color-neutral-800);
+  border: 1px solid var(--color-accent-100);
+}
+
+.promotion-component .promotion-card-secondary-button {
+  text-transform: lowercase;
+  color: var(--color-neutral-700);
+
+  display: flex;
+  align-items: center;
+}
