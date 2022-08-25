@@ -144,6 +144,20 @@ body {
 .bg-neutral-800 { background-color: var(--color-neutral-800); } 
 .bg-neutral-900 { background-color: var(--color-neutral-900); }
 
+/* others */
+.container {
+  --max-width: 1110px;
+  --padding: 1rem;
+
+  inline-size: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
+}
+
+[promotions-root] {
+  display: grid;
+  gap: 1rem;
+}
+
 /* -------------- */
 /* COMPONENTS     */
 /* -------------- */
