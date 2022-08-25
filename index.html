@@ -28,21 +28,32 @@
     <title>Today's Promotions</title>
   </head>
   <body>
+    <div class="container">
+      <div promotions-root></div>
+    </div>
+
     <template promotion-component-template>
       <div class="promotion-component">
         <div class="promotion-card-container">
           <div class="promotion-card-body">
             <div class="promotion-card-headline">
-              <h4 promotion-name></h4>
+              <h4 promotion-name class="promotion-card-title"></h4>
+              <p promotion-tag class="promotion-card-tag">All customers</p>
             </div>
   
             <div class="promotion-card-supporting-text">
-              <p promotion-description></p>
+              <p promotion-description class="promotion-card-description"></p>
             </div>
   
             <div class="promotion-card-actions">
-              <button promotion-join-now></button>
-              <button promotion-terms-and-conditions></button>
+              <button promotion-join-now class="promotion-card-primary-button"></button>
+              <button class="promotion-card-secondary-button">
+                <p promotion-terms-and-conditions></p>
+                
+                <svg width="18px" height="18px" viewBox="0 0 512 512">
+                  <polygon points="160,115.4 180.7,96 352,256 180.7,416 160,396.7 310.5,256 "/>
+                </svg>
+              </button>
             </div>
           </div>
 
