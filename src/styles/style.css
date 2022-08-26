@@ -194,10 +194,6 @@ body {
   font-size: var(--fs-500);
 }
 
-.promotion-component .promotion-card-headline  > .promotion-card-tag {
-  font-size: var(--fs-200);
-}
-
 .promotion-component .promotion-card-supporting-text {
   line-height: 1.75;
 }
@@ -242,4 +238,22 @@ body {
   color: var(--color-neutral-400);
 }
 
+/* promotion-card: tags */
+.promotion-component .promotion-card-tag {
+  inline-size: max-content;
+  padding-inline: 0.275em;
+
+  font-size: var(--fs-200);
+  font-weight: var(--fw-semi-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.25px;
+  color: var(--color-neutral-900);
+}
+
+.promotion-component .promotion-card-tag.all-customers {
+  background-color: var(--color-accent-100);
+}
+
+.promotion-component .promotion-card-tag.new-customers {
+  background-color: var(--color-accent-200);
 }
