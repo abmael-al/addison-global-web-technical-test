@@ -153,11 +153,6 @@ body {
   margin-inline: auto;
 }
 
-[promotions-root] {
-  display: grid;
-  gap: 1rem;
-}
-
 /* -------------- */
 /* COMPONENTS     */
 /* -------------- */
