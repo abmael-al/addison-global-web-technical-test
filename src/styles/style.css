@@ -274,6 +274,12 @@ body {
   grid-row: 1 / 2;
 }
 
+@media (min-width: 26.875em) {
+  .promotion-component {
+    --width: 24rem;
+  }
+}
+
 @media (min-width: 64em) {
   .promotion-component {
     --width: 28rem;
