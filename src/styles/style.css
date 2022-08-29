@@ -201,7 +201,6 @@ body {
   inline-size: 100%;
   display: grid;
   grid-auto-flow: var(--direction);
-  /* grid-auto-columns: auto; */
 }
 
 .promotion-component .promotion-card-body {
@@ -288,4 +287,80 @@ body {
 
 .promotion-component .promotion-card-tag.new-customers {
   background-color: var(--color-accent-200);
+}
+
+.filter {
+  --filter-padding: 0.75rem;
+  --filter-border-radius: 0.3125rem;
+  --filter-box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --filter-background-color: var(--color-neutral-100);
+  
+  position: relative;
+  inline-size: max-content;
+}
+
+.filter-button {
+  display: flex;
+  
+  padding: var(--filter-padding);
+
+  color: var(--color-neutral-300);
+  box-shadow: var(--filter-box-shadow);
+  border-radius: var(--filter-border-radius);
+  background-color: var(--filter-background-color);
+  
+  transition: color 300ms;
+}
+
+.filter-button svg{
+  pointer-events: none;
+}
+
+.filter-button:hover {
+  color: var(--color-neutral-700);
+}
+
+.filter-options {
+  position: absolute;
+  top: calc(100% + 0.25rem);
+  right: 0;
+
+  inline-size: 13rem;
+
+  font-size: var(--fs-300);
+  color: var(--color-neutral-700);
+  
+  box-shadow: var(--filter-box-shadow);
+  border-radius: var(--filter-border-radius);
+  background-color: var(--filter-background-color);
+
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: 
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  pointer-events: none;
+}
+
+.filter-options > .filter-option {
+  padding: calc(var(--filter-padding)); 
+  cursor: pointer;
+
+  transition: color 300ms;
+}
+
+.filter-options > .filter-option:hover {
+  color: var(--color-neutral-900);
+}
+
+.filter-options > .filter-option:not(:last-child) {
+  border-bottom: solid 1px var(--color-neutral-200);
+}
+
+.filter > .filter-button + .filter-options.active {
+  opacity: 1;
+  transform: translateY(0);
+  
+  pointer-events: auto;
 }
