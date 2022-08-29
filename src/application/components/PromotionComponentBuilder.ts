@@ -30,6 +30,12 @@ class PromotionComponentBuilder {
             "promotion-name": {
                 "textContent": promotion.name,
             },
+            "promotion-tag": {
+                "textContent": (promotion.onlyNewCustomers) ? 'new customers' : 'all customers',
+                "classList.add": {
+                    "args": [(promotion.onlyNewCustomers) ? 'new-customers' : 'all-customers'] as const,
+                },
+            },
             "promotion-description": {
                 "textContent": promotion.description,
             },
@@ -49,6 +55,9 @@ class PromotionComponentBuilder {
         const methods = {
             "setAttribute": (element: HTMLElement, ...args: string[]) => {
                 element.setAttribute(...args as [string, string]);
+            },
+            "classList.add": (element: HTMLElement, ...args: string[]) => {
+                element.classList.add(...args);
             }
         }
 
