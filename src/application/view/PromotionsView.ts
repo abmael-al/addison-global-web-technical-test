@@ -36,6 +36,10 @@ class PromotionsView {
             this.PromotionsRenderer.render(promotion);
         }
     }
+
+    private clear() {
+        this.PromotionsRenderer.clear();
+    }
 }
 
 export { PromotionsView };
