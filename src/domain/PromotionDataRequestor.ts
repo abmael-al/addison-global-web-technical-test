@@ -15,12 +15,34 @@ class PromotionDataRequestor {
             return this.buildResponse(false);
         }
     }
-
+    
     private buildResponse(result: Promotion[] | false): RequestResponse {
         return { 
             status: result ? 'success' : 'error',
             result: result ? result : [],
         };
+    }
+
+    async requestPromotionsForAllCustomers(): Promise<RequestResponse> {
+        try {
+            const { data } = await fetch<Promotion[]>(`${this.baseURL}/5bc3b9cc30000012007586b7`);
+
+            return this.buildResponse(data.filter(promotion => !promotion.onlyNewCustomers));
+        }
+        catch(error: unknown) {
+            return this.buildResponse(false);
+        }
+    }
+
+    async requestPromotionsForNewCustomers() {
+        try {
+            const { data } = await fetch<Promotion[]>(`${this.baseURL}/5bc3b9cc30000012007586b7`);
+
+            return this.buildResponse(data.filter(promotion => promotion.onlyNewCustomers));
+        }
+        catch(error: unknown) {
+            return this.buildResponse(false);
+        }
     }
 }
 
