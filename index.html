@@ -55,25 +55,6 @@
       </div> 
     </main>
 
-    <script>
-      const filterButton = document.querySelector('[filter-button]');
-      const filterOptions = document.querySelector('[filter-options]');
-
-      document.body.addEventListener('click', ({ target }) => {
-        if(target.hasAttribute('filter-button')) {
-          filterOptions.classList.toggle('active');
-          filterOptions.setAttribute('data-filter-options-state', 'active');
-        }
-        else if (!target.hasAttribute('filter-options')
-          && filterOptions.getAttribute('data-filter-options-state') === 'active'
-        ) {
-          
-          filterOptions.classList.remove('active');
-          filterOptions.setAttribute('data-filter-options-state', 'unactive');
-        }
-      });
-    </script>
-
     <template promotion-component-template>
       <div class="promotion-component">
         <div class="promotion-card-container">
