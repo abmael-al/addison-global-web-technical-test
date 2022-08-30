@@ -37,6 +37,26 @@ class PromotionsView {
         }
     }
 
+    async renderNewBatch(filter?: 'new-customers' | 'all-customers') {
+        let batch: Promotion[];
+
+        if(filter === 'new-customers') {
+            const { result } = await this.PromotionsRequestor.requestPromotionsForNewCustomers();
+            batch = result;
+        }
+        else if(filter === 'all-customers') {
+            const { result } = await this.PromotionsRequestor.requestPromotionsForAllCustomers();
+            batch = result;
+        }
+        else {
+            const { result } = await this.PromotionsRequestor.requestAll();
+            batch = result;
+        }
+
+        this.clear();
+        this.render(batch);
+    }
+
     private clear() {
         this.PromotionsRenderer.clear();
     }
