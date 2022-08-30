@@ -19,7 +19,7 @@ class PromotionComponentBuilder {
     }
 
     private setComponentStructure() {
-        const template = document.querySelector('[promotion-component-template]') as HTMLTemplateElement;
+        const template = document.querySelector('[data-promotion-component-template]') as HTMLTemplateElement;
         const component = template.content.cloneNode(true) as HTMLDivElement;
         
         this.componentStructure = component;
@@ -27,25 +27,25 @@ class PromotionComponentBuilder {
 
     private populateComponentStructure(promotion: Promotion) {
         const structure = {
-            "promotion-name": {
+            "data-promotion-name": {
                 "textContent": promotion.name,
             },
-            "promotion-tag": {
+            "data-promotion-tag": {
                 "textContent": (promotion.onlyNewCustomers) ? 'new customers' : 'all customers',
                 "classList.add": {
                     "args": [(promotion.onlyNewCustomers) ? 'new-customers' : 'all-customers'] as const,
                 },
             },
-            "promotion-description": {
+            "data-promotion-description": {
                 "textContent": promotion.description,
             },
-            "promotion-join-now": {
+            "data-promotion-join-now": {
                 "textContent": promotion.joinNowButtonText,
             },
-            "promotion-terms-and-conditions": {
+            "data-promotion-terms-and-conditions": {
                 "textContent": promotion.termsAndConditionsButtonText,
             },
-            "promotion-thumbnail": {
+            "data-promotion-thumbnail": {
                 "setAttribute": {
                     "args": ["src", promotion.heroImageUrl],
                 }

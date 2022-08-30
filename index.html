@@ -51,27 +51,27 @@
 
     <main>
       <div class="container">
-        <div promotions-root class="flex justify-center wrap gap-10"></div>
+        <div data-promotions-root class="flex justify-center wrap gap-10"></div>
       </div> 
     </main>
 
-    <template promotion-component-template>
+    <template data-promotion-component-template>
       <div class="promotion-component">
         <div class="promotion-card-container">
           <div class="promotion-card-body">
             <div class="promotion-card-headline">
-              <h4 promotion-name class="promotion-card-title"></h4>
-              <p promotion-tag class="promotion-card-tag"></p>
+              <h4 data-promotion-name class="promotion-card-title"></h4>
+              <p data-promotion-tag class="promotion-card-tag"></p>
             </div>
   
             <div class="promotion-card-supporting-text">
-              <p promotion-description class="promotion-card-description"></p>
+              <p data-promotion-description class="promotion-card-description"></p>
             </div>
   
             <div class="promotion-card-actions">
-              <button promotion-join-now class="promotion-card-primary-button"></button>
+              <button data-promotion-join-now class="promotion-card-primary-button"></button>
               <button class="promotion-card-secondary-button">
-                <p promotion-terms-and-conditions></p>
+                <p data-promotion-terms-and-conditions></p>
     
                 <svg height="14px" viewBox="0 0 512 512" fill="#8c8c8c">
                   <path d="M478,256,302,432l-21.21-21.2L420.6,271H34V241H420.6L280.75,101.16,302,80Z"/>
@@ -81,7 +81,7 @@
           </div>
 
           <div class="promotion-card-thumbnail">
-            <img promotion-thumbnail src="" alt="">
+            <img data-promotion-thumbnail src="" alt="">
           </div>
         </div>
       </div>

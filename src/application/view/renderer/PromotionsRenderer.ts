@@ -6,7 +6,7 @@ interface Builder {
 
 class PromotionsRenderer {
     private readonly ComponentBuilder;
-    private readonly root = document.querySelector('[promotions-root]') as HTMLDivElement;
+    private readonly root = document.querySelector('[data-promotions-root]') as HTMLDivElement;
 
     constructor(ComponentBuilder: Builder) {
         this.ComponentBuilder = ComponentBuilder;
