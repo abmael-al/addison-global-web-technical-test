@@ -21,6 +21,9 @@ interface View {
     renderNewBatch(filter?: 'new-customers' | 'all-customers'): void;
 }
 
+type FilterOption = 'new-customers' | 'all-customers' | 'all-promotions';
+type FilterState = FilterOption;
+
 export class PromotionsFilteringRequestListener {
     private readonly filter = document.querySelector('[data-promotions-filter]');
     private readonly ViewHandler;
@@ -40,13 +43,23 @@ export class PromotionsFilteringRequestListener {
     }
 
     private handleFilterRequest(element: HTMLElement) {
-        const option = element.getAttribute('data-filter-option');
+        const option = element.getAttribute('data-filter-option') as FilterOption;
         
+        if(this.isForbiddenFiltering(option)) {
+            return;
+        }
+
         if(option === 'new-customers' || option === 'all-customers') {
             this.ViewHandler.renderNewBatch(option);
         }
         else if (option === 'all-promotions') {
             this.ViewHandler.renderNewBatch();
         }
+
+        this.filter?.setAttribute('data-filter-state', option);
+    }
+
+    private isForbiddenFiltering(option: FilterOption) {
+        return (<FilterState>this.filter?.getAttribute('data-filter-state')) === option;
     }
 }
