@@ -3,10 +3,13 @@ import { RequestResponse } from "../../domain/RequestResponse"
 
 interface Renderer {
     render(promotion: Promotion): void;
+    clear(): void;
 }
 
 interface Requestor {
     requestAll(): Promise<RequestResponse>;
+    requestPromotionsForAllCustomers(): Promise<RequestResponse>;
+    requestPromotionsForNewCustomers(): Promise<RequestResponse>;
 }
 
 class PromotionsView {
