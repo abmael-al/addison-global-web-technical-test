@@ -30,6 +30,8 @@ class PromotionsView {
     }
 
     private render(promotions: Promotion[]) {
+        promotions.sort();
+
         for(const promotion of promotions){
             this.PromotionsRenderer.render(promotion);
         }
