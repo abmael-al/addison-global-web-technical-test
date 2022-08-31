@@ -22,10 +22,10 @@ class PromotionsView {
     }
     
     async start() {
-        const { status, result } = await this.PromotionsRequestor.requestAll();
+        const response = await this.PromotionsRequestor.requestAll();
 
-        if(status === 'success') {
-            this.render(result);
+        if(response.status === 'success') {
+            this.render(response.result);
         }
     }
 
@@ -38,23 +38,24 @@ class PromotionsView {
     }
 
     async renderNewBatch(filter?: 'new-customers' | 'all-customers') {
-        let batch: Promotion[];
+        let response;
 
-        if(filter === 'new-customers') {
-            const { result } = await this.PromotionsRequestor.requestPromotionsForNewCustomers();
-            batch = result;
-        }
-        else if(filter === 'all-customers') {
-            const { result } = await this.PromotionsRequestor.requestPromotionsForAllCustomers();
-            batch = result;
+        if(filter) {
+            const filteringHandlers = {
+                'new-customers': () => this.PromotionsRequestor.requestPromotionsForNewCustomers(),
+                'all-customers': () => this.PromotionsRequestor.requestPromotionsForAllCustomers()
+            }
+
+            response = await filteringHandlers[filter]();
         }
         else {
-            const { result } = await this.PromotionsRequestor.requestAll();
-            batch = result;
+            response = await this.PromotionsRequestor.requestAll();
         }
 
-        this.clear();
-        this.render(batch);
+        if(response.status === 'success') {
+            this.clear();
+            this.render(response.result);
+        }
     }
 
     private clear() {
