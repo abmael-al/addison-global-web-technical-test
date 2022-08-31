@@ -17,19 +17,20 @@
     });
 })()
 
-interface View {
-    renderNewBatch(filter?: 'new-customers' | 'all-customers'): void;
-}
-
 type FilterOption = 'new-customers' | 'all-customers' | 'all-promotions';
+
 type FilterState = FilterOption;
+
+interface Manager {
+    rerender(filtering?: 'new-customers' | 'all-customers'): void;
+}
 
 export class PromotionsFilteringRequestListener {
     private readonly filter = document.querySelector('[data-promotions-filter]');
-    private readonly ViewHandler;
+    private readonly ViewManager;
 
-    constructor(ViewHandler: View) {
-        this.ViewHandler = ViewHandler;
+    constructor(ViewManager: Manager) {
+        this.ViewManager = ViewManager;
     }
 
     listen() {
@@ -50,10 +51,10 @@ export class PromotionsFilteringRequestListener {
         }
 
         if(option === 'new-customers' || option === 'all-customers') {
-            this.ViewHandler.renderNewBatch(option);
+            this.ViewManager.rerender(option);
         }
         else if (option === 'all-promotions') {
-            this.ViewHandler.renderNewBatch();
+            this.ViewManager.rerender();
         }
 
         this.filter?.setAttribute('data-filter-state', option);
