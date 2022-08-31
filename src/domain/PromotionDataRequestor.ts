@@ -1,13 +1,12 @@
 import { fetch } from './http_client/fetch'
 import { Promotion } from './Promotion'
 import { RequestResponse } from './RequestResponse'
+import { ROUTES } from './ROUTES'
 
 class PromotionDataRequestor {
-    private readonly baseURL = 'http://www.mocky.io/v2';
-
     async requestAll(): Promise<RequestResponse> {
         try {
-            const { data } = await fetch<Promotion[]>(`${this.baseURL}/5bc3b9cc30000012007586b7`);
+            const { data } = await fetch<Promotion[]>(ROUTES.getAllPromotionsRoute());
 
             return this.buildResponse('success', data);
         }
@@ -35,7 +34,7 @@ class PromotionDataRequestor {
 
     async requestPromotionsForAllCustomers(): Promise<RequestResponse> {
         try {
-            const { data } = await fetch<Promotion[]>(`${this.baseURL}/5bc3b9cc30000012007586b7`);
+            const { data } = await fetch<Promotion[]>(ROUTES.getAllCustomersRoute());
 
             return this.buildResponse('success', data.filter(promotion => !promotion.onlyNewCustomers));
         }
@@ -46,7 +45,7 @@ class PromotionDataRequestor {
 
     async requestPromotionsForNewCustomers() {
         try {
-            const { data } = await fetch<Promotion[]>(`${this.baseURL}/5bc3b9cc30000012007586b7`);
+            const { data } = await fetch<Promotion[]>(ROUTES.getNewCustomersRoute());
 
             return this.buildResponse('success', data.filter(promotion => promotion.onlyNewCustomers));
         }
