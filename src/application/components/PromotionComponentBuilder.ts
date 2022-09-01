@@ -6,6 +6,7 @@ interface HTMLElementAssignablePropertiesInUse {
 
 interface HTMLElementMethodsInUse {
     setAttribute: string;
+    'classList.add': string;
 }
 
 class PromotionComponentBuilder {
@@ -27,36 +28,36 @@ class PromotionComponentBuilder {
 
     private populateComponentStructure(promotion: Promotion) {
         const structure = {
-            "data-promotion-name": {
-                "textContent": promotion.name,
+            'data-promotion-name': {
+                'textContent': promotion.name,
             },
-            "data-promotion-tag": {
-                "textContent": (promotion.onlyNewCustomers) ? 'new customers' : 'all customers',
-                "classList.add": {
-                    "args": [(promotion.onlyNewCustomers) ? 'new-customers' : 'all-customers'] as const,
+            'data-promotion-tag': {
+                'textContent': (promotion.onlyNewCustomers) ? 'new customers' : 'all customers',
+                'classList.add': {
+                    'args': [(promotion.onlyNewCustomers) ? 'new-customers' : 'all-customers'] as const,
                 },
             },
-            "data-promotion-description": {
-                "textContent": promotion.description,
+            'data-promotion-description': {
+                'textContent': promotion.description,
             },
-            "data-promotion-join-now": {
-                "textContent": promotion.joinNowButtonText,
+            'data-promotion-join-now': {
+                'textContent': promotion.joinNowButtonText,
             },
-            "data-promotion-terms-and-conditions": {
-                "textContent": promotion.termsAndConditionsButtonText,
+            'data-promotion-terms-and-conditions': {
+                'textContent': promotion.termsAndConditionsButtonText,
             },
-            "data-promotion-thumbnail": {
-                "setAttribute": {
-                    "args": ["src", promotion.heroImageUrl],
+            'data-promotion-thumbnail': {
+                'setAttribute': {
+                    'args': ["src", promotion.heroImageUrl],
                 }
             }
         }
 
         const methods = {
-            "setAttribute": (element: HTMLElement, ...args: string[]) => {
+            'setAttribute': (element: HTMLElement, ...args: string[]) => {
                 element.setAttribute(...args as [string, string]);
             },
-            "classList.add": (element: HTMLElement, ...args: string[]) => {
+            'classList.add': (element: HTMLElement, ...args: string[]) => {
                 element.classList.add(...args);
             }
         }
