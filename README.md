@@ -5,10 +5,10 @@ In addition to completing this challenge, my goal was to improve my UI design sk
 
 ## Screens
 ### Mobile
-- [](./data/images/app_mobile_screen.png)
+![](./data/images/app_mobile_screen.png)
 
 ### Desktop
-- [](./data/images/app_desktop_screen.png)
+![](./data/images/app_desktop_screen.png)
 
 ## Technologies
 **Project is created with**:
