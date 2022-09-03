@@ -1,7 +1,7 @@
-import { fetch } from './http_client/fetch'
-import { Promotion } from './Promotion'
-import { RequestResponse } from './RequestResponse'
-import { ROUTES } from './ROUTES'
+import { fetch } from '../http_client/fetch'
+import { Promotion } from '../Promotion'
+import { RequestResponse } from '../RequestResponse'
+import { ROUTES } from '../ROUTES'
 
 class PromotionDataRequestor {
     async requestAll(): Promise<RequestResponse> {
@@ -26,8 +26,8 @@ class PromotionDataRequestor {
                 }
                 : {
                     status: 'error'
-                }
-        ;
+                };
+
  
         return response;
     }
