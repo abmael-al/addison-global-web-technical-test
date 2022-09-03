@@ -27,7 +27,25 @@ class PromotionComponentBuilder {
     }
 
     private populateComponentStructure(promotion: Promotion) {
-        const structure = {
+        const structure = this.getComponentStructure(promotion);
+        const methods = this.getMethodsForPopulatingComponentStructure();
+
+        for(const [indentifier, config] of Object.entries(structure)) {
+            const element = this.componentStructure.querySelector(`[${indentifier}]`) as HTMLElement;
+
+            for(const [property, propertyConfig] of Object.entries(config)) {
+                if(Object.hasOwn(methods, property)) {
+                    methods[property as keyof HTMLElementMethodsInUse](element, ...propertyConfig.args);
+                }
+                else {
+                    element[property as keyof HTMLElementAssignablePropertiesInUse] = propertyConfig;
+                }
+            }
+        }
+    }
+
+    private getComponentStructure(promotion: Promotion) {
+        return {
             'data-promotion-name': {
                 'textContent': promotion.name,
             },
@@ -52,26 +70,15 @@ class PromotionComponentBuilder {
                 }
             }
         }
+    }
 
-        const methods = {
+    private getMethodsForPopulatingComponentStructure() {
+        return {
             'setAttribute': (element: HTMLElement, ...args: string[]) => {
                 element.setAttribute(...args as [string, string]);
             },
             'classList.add': (element: HTMLElement, ...args: string[]) => {
                 element.classList.add(...args);
-            }
-        }
-
-        for(const [indentifier, config] of Object.entries(structure)) {
-            const element = this.componentStructure.querySelector(`[${indentifier}]`) as HTMLElement;
-
-            for(const [property, propertyConfig] of Object.entries(config)) {
-                if(Object.hasOwn(methods, property)) {
-                    methods[property as keyof HTMLElementMethodsInUse](element, ...propertyConfig.args);
-                }
-                else {
-                    element[property as keyof HTMLElementAssignablePropertiesInUse] = propertyConfig;
-                }
             }
         }
     }
