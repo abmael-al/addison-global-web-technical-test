@@ -1,4 +1,4 @@
-import { Promotion } from "../../domain/Promotion";
+import { Promotion } from "../../domain/promotion_interface/Promotion";
 
 interface HTMLElementAssignablePropertiesInUse {
     textContent: string;

@@ -1,5 +1,5 @@
-import { Promotion } from "../../../domain/Promotion";
-import { RequestResponse } from "../../../domain/RequestResponse";
+import { Promotion } from "../../../domain/promotion_interface/Promotion";
+import { RequestResponse } from "../../../domain/request_response/RequestResponse";
 
 interface Requestor {
     requestAll(): Promise<RequestResponse>;

@@ -1,7 +1,7 @@
-import { PromotionDataRequestor } from "./domain/PromotionDataRequestor";
+import { PromotionDataRequestor } from "./domain/data_requestor/PromotionDataRequestor";
 import { PromotionComponentBuilder } from "./application/components/PromotionComponentBuilder";
 import { PromotionsRenderer } from "./application/view/renderer/PromotionsRenderer";
-import { PromotionsView } from "./application/view/PromotionsView";
+import { PromotionsView } from "./application/view/view_handler/PromotionsView";
 import { PromotionsFilteringRequestListener } from "./application/view/listeners/PromotionsFilteringRequestListener";
 import { PromotionsViewStateManager } from "./application/view/state_manager/PromotionsViewStateManager";
 
