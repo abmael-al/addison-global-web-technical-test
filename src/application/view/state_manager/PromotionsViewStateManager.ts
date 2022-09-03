@@ -27,8 +27,16 @@ class PromotionsViewStateManager {
         const response = await this.PromotionsRequestor.requestAll();
 
         if(response.status === 'success') {
-            this.ViewHandler.display(response.result.sort());
+            this.updateView(response.result);
         }
+    }
+    
+    private updateView(content: Promotion[], clearView = false) {
+        if(clearView) {
+            this.ViewHandler.clear();
+        }
+        
+        this.ViewHandler.display(content.sort());
     }
 
     async rerender(filtering?: Filtering) {
@@ -42,8 +50,7 @@ class PromotionsViewStateManager {
             : await this.PromotionsRequestor.requestAll();
 
         if(response.status === 'success') {
-            this.ViewHandler.clear();
-            this.ViewHandler.display(response.result.sort());
+            this.updateView(response.result, true);
         }
     }
 }
