@@ -1,4 +1,4 @@
-import { Promotion } from "./Promotion";
+import { Promotion } from "../promotion_interface/Promotion";
 
 interface SuccessfulRequest {
     readonly status: 'success';
