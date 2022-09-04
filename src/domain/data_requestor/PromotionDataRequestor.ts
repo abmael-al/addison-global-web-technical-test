@@ -1,6 +1,6 @@
 import { fetch } from '../http_client/fetch'
 import { Promotion } from '../promotion_interface/Promotion'
-import { RequestResponse } from '../request_response/RequestResponse'
+import { RequestResponse } from '../response_interface/RequestResponse'
 import { ROUTES } from '../routes/ROUTES'
 
 class PromotionDataRequestor {
