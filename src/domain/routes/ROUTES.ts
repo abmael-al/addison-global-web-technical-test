@@ -5,7 +5,13 @@ const URLs = {
 }
 
 export const ROUTES = {
-    'getAllPromotionsRoute': () => `${URLs.allPromotionsURL}`,
-    'getNewCustomersRoute': () => `${URLs.newCustomersURL}`,
-    'getAllCustomersRoute': () => `${URLs.allCustomersURL}`,
+    getAllPromotionsRoute() {
+        return `${URLs.allPromotionsURL}`;
+    },
+    getNewCustomersRoute() {
+        return `${URLs.newCustomersURL}`;
+    },
+    getAllCustomersRoute() {
+        return`${URLs.allCustomersURL}`;
+    },
 }
