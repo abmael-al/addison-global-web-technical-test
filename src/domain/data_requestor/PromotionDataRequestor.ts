@@ -36,6 +36,9 @@ class PromotionDataRequestor {
         try {
             const { data } = await fetch<Promotion[]>(ROUTES.getAllCustomersRoute());
 
+            // This class wasn't suposed to touch the requested data at all. But the
+            // API doesn't provide an endpoint for "promotions for all customers" and
+            // "promotions for new customers". So i decided to handle it this way.
             return this.buildResponse('success', data.filter(promotion => !promotion.onlyNewCustomers));
         }
         catch(error: unknown) {
