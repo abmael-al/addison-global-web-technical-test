@@ -1,22 +1,3 @@
-(function activatePromotionsFilterElement() {
-    const filterOptions = document.querySelector('[data-filter-options]');
-
-    document.body.addEventListener('click', ({ target }) => {
-        if(target instanceof HTMLElement) {
-            if(target.hasAttribute('data-filter-button')) {
-                filterOptions?.classList.toggle('active');
-                filterOptions?.setAttribute('data-filter-options-state', 'active');
-            }
-            else if (!target.hasAttribute('data-filter-options')
-                && filterOptions?.getAttribute('data-filter-options-state') === 'active'
-            ) {
-                filterOptions.classList.remove('active');
-                filterOptions.setAttribute('data-filter-options-state', 'unactive');
-            }
-        }
-    });
-})()
-
 type FilterOption = 'new-customers' | 'all-customers' | 'all-promotions';
 
 type FilterState = FilterOption;
